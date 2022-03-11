@@ -1,0 +1,58 @@
+﻿<Window x:Class="InstallTools.view.map.FileDatasurehous"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:InstallTools.view.map"
+        mc:Ignorable="d"
+        Title="" Height="450" Width="800">
+    <Grid>
+
+
+
+
+        <Button x:Name="sqlConnBtn"
+                    Content="测试连接" IsEnabled="True" VerticalAlignment="Center" Background="#CC202121" Margin="257,25,414,362" Click="sqlConnBtn_Click" BorderBrush="{x:Null}" Height="32" />
+
+        <ProgressBar x:Name="Mbar"  IsIndeterminate="True" IsEnabled="True" Visibility="Hidden" Background="{x:Null}" Foreground="#FFD4D1DA" Height="Auto" Margin="263,120,23,267" BorderBrush="{x:Null}" Grid.ColumnSpan="2"  />
+
+        <Label Content="数据库地址：" HorizontalAlignment="Left" Margin="19,20,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="AddTxt" HorizontalAlignment="Left"  Height="25" Margin="104,20,0,0" TextWrapping="Wrap" Text="localhost" VerticalAlignment="Top" Width="120"/>
+
+        <Label Content="密码：" HorizontalAlignment="Left" Margin="55,66,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.077,0.513"/>
+        <!--<PasswordBox    Height="25" Margin="101,114,0,0"  VerticalAlignment="Top" Width="120"/>-->
+        <PasswordBox
+                  x:Name="PasswordBox"
+                  materialDesign:HintAssist.Hint=""
+                  materialDesign:TextFieldAssist.HasClearButton="True"
+                  Margin="104,61,560,329"
+                />
+
+        <Label Content="名称：" HorizontalAlignment="Left" Margin="55,104,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="MStxt" HorizontalAlignment="Left"  Height="25" Margin="104,104,0,0"  Text="lywdog" VerticalAlignment="Top" Width="120"/>
+
+
+
+
+        <GroupBox
+                Header="数据结构"
+                
+                Style="{DynamicResource MaterialDesignGroupBox}"
+                Margin="10,169,10,0"
+                UseLayoutRounding="True" Background="{x:Null}" Grid.ColumnSpan="2">
+            <!--<TextBox x:Name="Ciftxt" BorderThickness="0" TextWrapping = "Wrap"  
+                                 Text="" />-->
+            <StackPanel x:Name="Stck" Background="#FFE4E4E4">
+                <TreeView x:Name="treeView" Height="199" Width="750" />
+            </StackPanel>
+        </GroupBox>
+        <Button x:Name="DataFile_btn"
+                    Content="选择数据"  VerticalAlignment="Center" Background="#CC202121"  Margin="649,25,23,362" BorderBrush="{x:Null}" Click="DataFile_btn_Click" Height="32"  />
+        <Button x:Name="DataImport_btn"
+                Content="数据导入" VerticalAlignment="Center"  Background="#CC202121" Margin="649,99,23,290" BorderBrush="{x:Null}"  Click="DataImport_btn_Click" Height="32"  />
+        <Button x:Name="sqlCreate_btn"
+            Content="创建数据库" IsEnabled="True" VerticalAlignment="Center" Background="#CC202121" Margin="257,99,414,288" Click="sqlCreate_Click" BorderBrush="{x:Null}" Height="32" />
+
+    </Grid>
+</Window>

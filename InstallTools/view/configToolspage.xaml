@@ -1,0 +1,110 @@
+﻿<Window x:Class="InstallTools.view.configToolspage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:InstallTools.view"
+        mc:Ignorable="d"
+        Title="configToolspage" Height="450" Width="800" Loaded="Window_Loaded" Closed="Window_Closed">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="185*"/>
+                <ColumnDefinition Width="13*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="sqlConnBtn"
+                    Content="创建模式" IsEnabled="True" VerticalAlignment="Center" Background="#CC202121" Margin="263,120,23,267" Click="sqlConnBtn_Click" BorderBrush="{x:Null}" Grid.ColumnSpan="2"  />
+
+            <ProgressBar x:Name="Mbar"  IsIndeterminate="True" IsEnabled="True" Visibility="Hidden" Background="{x:Null}" Foreground="#FFD4D1DA" Height="Auto" Margin="263,120,23,267" BorderBrush="{x:Null}" Grid.ColumnSpan="2"  />
+
+            <Label Content="服务器地址：" HorizontalAlignment="Left" Margin="16,75,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="AddTxt" HorizontalAlignment="Left"  Height="25" Margin="101,75,0,0" TextWrapping="Wrap" Text="localhost" VerticalAlignment="Top" Width="120"/>
+
+            <Label Content="密码：" HorizontalAlignment="Left" Margin="52,121,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.077,0.513"/>
+            <!--<PasswordBox    Height="25" Margin="101,114,0,0"  VerticalAlignment="Top" Width="120"/>-->
+            <PasswordBox
+                  x:Name="PasswordBox"
+                  materialDesign:HintAssist.Hint=""
+                  materialDesign:TextFieldAssist.HasClearButton="True"
+                  Margin="101,120,149,274"
+                 Height="25"
+                />
+
+            <Label Content="模式名称：" HorizontalAlignment="Left" Margin="28,159,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="MStxt" HorizontalAlignment="Left"  Height="25" Margin="101,159,0,0"  Text="mapv3d" VerticalAlignment="Top" Width="120"/>
+
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <materialDesign:Card 
+              materialDesign:ShadowAssist.ShadowDepth="Depth1"
+              Padding="32"
+              >
+                <StackPanel x:Name="Stack" >
+                    <Grid >
+
+                        <Border
+                            Background="{DynamicResource MaterialDesignBackground}">
+                            <GroupBox
+                                Header="启动文件配置信息"
+                                Style="{DynamicResource MaterialDesignGroupBox}"
+                                Margin="0,2,-10,-242"
+                                UseLayoutRounding="True">
+                                <!--<TextBox x:Name="Ciftxt" BorderThickness="0" TextWrapping = "Wrap"  
+                                 Text="" />-->
+                                <StackPanel x:Name="Stck" Background="#FFE4E4E4">
+                                    <Grid>
+                                        <Label Content="地址：" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="10,15,-20,0" />
+                                        <TextBox x:Name="HostTxt" HorizontalAlignment="Left" Height="25" Margin="90,15,20,0"  Text="127.0.0.1" VerticalAlignment="Top" Width="120"/>
+                                    </Grid>
+                                    <Grid>
+                                        <Label Content="用户名称：" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="10,15,-20,0" />
+                                        <TextBox x:Name="UserTxt" HorizontalAlignment="Left" Height="25" Margin="90,15,10,0"  Text="postgres" VerticalAlignment="Top" Width="120"/>
+                                    </Grid>
+                                    <Grid>
+                                        <Label Content="密码：" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="10,15,-20,0" />
+                                        <PasswordBox x:Name="PassTxt" HorizontalAlignment="Left" Height="25" Margin="90,15,20,0"  Password="" VerticalAlignment="Top" Width="120"/>
+                                    </Grid>
+                                    <Grid>
+                                        <Label Content="模式名称：" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="10,15,-20,0" />
+                                        <TextBox x:Name="MsTxt" HorizontalAlignment="Left"  Height="25" Margin="90,15,20,0"  Text="mapv3d" VerticalAlignment="Top" Width="120"/>
+                                    </Grid>
+                                    <Grid>
+                                        <Label Content="端口：" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="10,15,-20,0" />
+                                        <TextBox x:Name="PortTxt" HorizontalAlignment="Left"  Height="25" Margin="90,15,20,0"  Text="6379" VerticalAlignment="Top" Width="120"/>
+                                    </Grid>
+                                </StackPanel>
+                            </GroupBox>
+                        </Border>
+
+                        <Button x:Name="Map3dBN"
+                            Style="{StaticResource MaterialDesignRaisedButton}"
+                        Content="修改配置" IsEnabled="True" VerticalAlignment="Center" Margin="0,311,211,-311" Click="Map3dBN_Click" />
+
+                        <Button x:Name="Map3dN"
+                            Style="{StaticResource MaterialDesignRaisedButton}"
+                            materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+                        materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+                        Content="启动引擎" IsEnabled="True" VerticalAlignment="Center" Margin="201,311,0,-311" Click="Map3dN_Click" />
+
+                        <Label Content="后台地址：" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="0,357,0,-348"/>
+                        <TextBox x:Name="tt" HorizontalAlignment="Left"  Height="25" TextWrapping="Wrap" Text="http://127.0.0.1:19901/aimapvision3d" VerticalAlignment="Top" Width="264" Margin="68,357,0,-348"/>
+
+                    </Grid>
+
+
+                </StackPanel>
+
+            </materialDesign:Card>
+
+
+        </Grid>
+    </Grid>
+</Window>
